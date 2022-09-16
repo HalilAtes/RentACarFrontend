@@ -1,4 +1,4 @@
-div {
+  /* table{
     margin-top: 10px;
 
     margin-bottom: 10px;
@@ -6,15 +6,11 @@ div {
     margin-right: 5px;
 
     margin-left: 5px;
+
+  } */
+  .feyyaz{
+    margin-top: 15px;
   }
-
-  table{
-    margin-top: 10px;
-
-    margin-bottom: 10px;
-
-    margin-right: 5px;
-
-    margin-left: 5px;
-
+  .NoneCircle{
+    list-style-type:none;
   }

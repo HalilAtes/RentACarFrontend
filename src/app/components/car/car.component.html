@@ -1,21 +1,26 @@
+
 <div class="d-grid gap-2 col-12 mx-auto">
-  <button type="button" class="btn btn-danger">Arabalar</button>
+  <button type="button" class="btn btn-danger" (click)="getCarsDetails()">
+    Arabalar
+  </button>
 </div>
-<ol class="list-group-item">
-  <li *ngFor="let car of cardetails">
-    {{ car.id }}
-    {{ car.carName }}
-    {{ car.modelYear }}
-    {{ car.brandName }}
-  </li>
-</ol>
 
+<div class="container text-center">
+  <div class="row row-cols-2">
+    <div *ngFor="let car of cardetails" class="col feyyaz">
+      <div class="card">
+        <img src="..." class="card-img-top" alt="..." />
+        <div class="card-body">
 
-
-
-
-
-
-
-
-
+          <ul class="NoneCircle">
+            <li>{{ car.id }}</li>
+            <li>{{ car.carName }}</li>
+            <li>{{ car.modelYear }}</li>
+            <li>{{ car.brandName }}</li>
+            <li>{{ car.colorName }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

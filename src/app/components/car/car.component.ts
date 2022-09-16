@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Brand } from 'src/app/models/brand/brand';
 import { Car } from 'src/app/models/car/car';
-import { BrandService } from 'src/app/services/brand/brand.service';
 import { CarService } from 'src/app/services/car/car.service';
 
 @Component({
@@ -13,6 +11,17 @@ import { CarService } from 'src/app/services/car/car.service';
 export class CarComponent implements OnInit {
   cars: Car[] = [];
   cardetails: Car[] = [];
+  currentCar: Car = {
+    carName: '',
+    brandId: 0,
+    brandName: '',
+    colorId: 0,
+    colorName: '',
+    dailyPrice: 0,
+    id: 0,
+    modelYear: 0,
+  };
+
   dataLoaded = false;
   // carResponseModel:CarResponseModel={
   //   data : this.cars,
@@ -22,18 +31,19 @@ export class CarComponent implements OnInit {
 
   constructor(
     private carService: CarService,
-    private activatedRoute: ActivatedRoute,
-    private brandService: BrandService
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-
     this.activatedRoute.params.subscribe((params) => {
       if (params['brandId']) {
         this.getCarDetailsByBrands(params['brandId']);
+      } else if (params['colorId']) {
+        this.getCarDetailsByColors(params['colorId']);
+      } else if (params['carId']) {
+        this.getCarById(params['carıd']);
       } else {
         this.getCarsDetails();
-
       }
     });
     //  this.getCars();
@@ -46,13 +56,23 @@ export class CarComponent implements OnInit {
     });
   }
 
-  getCarDetailsByBrands(brandId : number) {
+  setCurrentCars(car: Car) {
+    this.currentCar = car;
+  }
+
+  getCarDetailsByBrands(brandId: number) {
     this.carService.getCarDetailsByBrands(brandId).subscribe((response) => {
       this.cardetails = response.data;
       this.dataLoaded = true;
     });
   }
 
+  getCarDetailsByColors(colorId: number) {
+    this.carService.getCarDetailsByColors(colorId).subscribe((response) => {
+      this.cardetails = response.data;
+      this.dataLoaded = true;
+    });
+  }
 
   getCarsDetails() {
     this.carService.getCarsDetails().subscribe((response) => {
@@ -61,5 +81,12 @@ export class CarComponent implements OnInit {
     });
   }
 
- 
+  getCarById(carId: number) {
+    this.carService.getCarById(carId).subscribe((response) => {
+      this.cardetails = response.data;
+      this.dataLoaded = true;
+    });
+  }
+
+  
 }

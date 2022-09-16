@@ -6,6 +6,8 @@ const routes: Routes = [
   {path : "", pathMatch:"full", component:CarComponent},
   {path : "cars" , component:CarComponent},
   {path : "brands/brand/:brandId" , component:CarComponent},
+  {path : "colors/color/:colorId" , component:CarComponent},
+
 
 
 ];

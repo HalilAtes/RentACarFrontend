@@ -1,5 +1,6 @@
 <div class="d-grid gap-2 col-12 mx-auto">
-  <button type="button" class="btn btn-danger">Markalar</button>
+  <button type="button" class="btn btn-danger">Müşteriler
+  </button>
 </div>
  <ul class="list-group">
   <li (click)="setCurrentCustomer(customer)" *ngFor="let customer of customers" [class]="getCurrentCustomerClass(customer)" >{{customer.companyName}}</li>

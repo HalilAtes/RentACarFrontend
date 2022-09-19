@@ -7,6 +7,8 @@ const routes: Routes = [
   {path : "cars" , component:CarComponent},
   {path : "brands/brand/:brandId" , component:CarComponent},
   {path : "colors/color/:colorId" , component:CarComponent},
+  // {path : "rentals/rental/:Id" , component:CarComponent},
+
 
 
 

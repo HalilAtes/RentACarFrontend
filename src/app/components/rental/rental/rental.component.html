@@ -1,0 +1,14 @@
+<div class="d-grid gap-2 col-12 mx-auto">
+    <button type="button" class="btn btn-danger">Kiralamalar</button>
+  </div >
+   <ul class="list-group-item">
+     <li   
+        
+     *ngFor="let rental of rentals" 
+    >{{rental.id}}</li> 
+   </ul>
+  
+   <h5 *ngIf="currentRental">
+    {{currentRental.id}} seçtiniz </h5> 
+  
+  
